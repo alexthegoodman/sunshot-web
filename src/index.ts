@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 import {ApplicationConfig, SunshotWebApplication} from './application';
 
 export * from './application';

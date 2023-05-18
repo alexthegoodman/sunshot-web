@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 import {SunshotWebApplication} from './application';
 
 export async function migrate(args: string[]) {
