@@ -9,14 +9,6 @@
     "source.fixAll.eslint": true
   },
 
-  "files.exclude": {
-    "**/.DS_Store": true,
-    "**/.git": true,
-    "**/.hg": true,
-    "**/.svn": true,
-    "**/CVS": true,
-    "dist": true,
-  },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
 

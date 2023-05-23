@@ -1,21 +1,11 @@
 # sunshot-web
 
-This application is generated using [LoopBack 4 CLI](https://loopback.io/doc/en/lb4/Command-line-interface.html) with the
-[initial project layout](https://loopback.io/doc/en/lb4/Loopback-application-layout.html).
+This is the licensing API and web site for SunShot.
 
 ## Install dependencies
 
-By default, dependencies were installed when this application was generated.
-Whenever dependencies in `package.json` are changed, run the following command:
-
 ```sh
 npm install
-```
-
-To only install resolved dependencies in `package-lock.json`:
-
-```sh
-npm ci
 ```
 
 ## Run the application
@@ -67,9 +57,9 @@ npm run lint:fix
 npm test
 ```
 
-## What's next
+## Learn more
 
 Please check out [LoopBack 4 documentation](https://loopback.io/doc/en/lb4/) to
 understand how you can continue to add features to this application.
 
-[![LoopBack](https://github.com/loopbackio/loopback-next/raw/master/docs/site/imgs/branding/Powered-by-LoopBack-Badge-(blue)-@2x.png)](http://loopback.io/)
+[![LoopBack](<https://github.com/loopbackio/loopback-next/raw/master/docs/site/imgs/branding/Powered-by-LoopBack-Badge-(blue)-@2x.png>)](http://loopback.io/)
