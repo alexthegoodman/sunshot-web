@@ -36,7 +36,7 @@
     "clean": "lb-clean dist *.tsbuildinfo .eslintcache",
     "rebuild": "npm run clean && npm run build",
     "client:dev": "vite",
-    "client:build": "vite build",
+    "client:build": "vite build --emptyOutDir",
     "client:preview": "vite preview"
   },
   "repository": {
@@ -64,6 +64,7 @@
     "fs-extra": "^11.1.1",
     "lit": "^2.7.4",
     "loopback-connector-postgresql": "^5.5.2",
+    "sass": "^1.62.1",
     "tslib": "^2.0.0",
     "vite": "^4.3.8"
   },

@@ -1,14 +1,11 @@
-import {LitElement, css, html} from 'lit';
+import {LitElement, html, unsafeCSS} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
+import styles from './HelloWorld.scss?inline';
 
 @customElement('simple-greeting')
 export class SimpleGreeting extends LitElement {
   // Define scoped styles right with your component, in plain CSS
-  static override styles = css`
-    :host {
-      color: blue;
-    }
-  `;
+  static override styles = unsafeCSS(styles);
 
   // Declare reactive properties
   @property()
@@ -16,12 +13,6 @@ export class SimpleGreeting extends LitElement {
 
   // Render the UI as a function of component state
   override render() {
-    return html`<p>Hello, ${this.name}!</p>`;
+    return html`<p className="test">Hello, ${this.name}!</p>`;
   }
 }
-
-// declare global {
-//   interface HTMLElementTagNameMap {
-//     'simple-greeting': SimpleGreeting;
-//   }
-// }
