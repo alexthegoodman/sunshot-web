@@ -13,6 +13,12 @@ export class SimpleGreeting extends LitElement {
 
   // Render the UI as a function of component state
   override render() {
-    return html`<p className="test">Hello, ${this.name}!</p>`;
+    return html` <p className="test">Hello, ${this.name}!</p>
+      <button @click=${this.handleClick}>Test</button>`;
+  }
+
+  // update name on button click
+  handleClick() {
+    this.name = 'Lit';
   }
 }
