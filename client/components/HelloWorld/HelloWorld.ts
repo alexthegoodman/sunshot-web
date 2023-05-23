@@ -1,5 +1,6 @@
 import {LitElement, html, unsafeCSS} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
+import logoUrl from '../../images/logowbg.svg';
 import styles from './HelloWorld.scss?inline';
 
 @customElement('simple-greeting')
@@ -13,7 +14,8 @@ export class SimpleGreeting extends LitElement {
 
   // Render the UI as a function of component state
   override render() {
-    return html` <p className="test">Hello, ${this.name}!</p>
+    return html`<img alt="Lit" src=${logoUrl} width="150" />
+      <p className="test">Hello, ${this.name}!</p>
       <button @click=${this.handleClick}>Test</button>`;
   }
 
