@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>SunShot</title>
-    <script type="module" src="./index.ts"></script>
+    <script
+      type="module"
+      src="./components/hello-world/hello-world.ts"
+    ></script>
+    <script type="module" src="./components/sun-logo/sun-logo.ts"></script>
+    <script type="module" src="./components/sun-header/sun-header.ts"></script>
   </head>
   <body>
-    <main>
-      <h1>Welcome to SunShot</h1>
-      <simple-greeting></simple-greeting>
-    </main>
+    <sun-header>
+      <sun-logo slot="logo"></sun-logo>
+    </sun-header>
   </body>
 </html>

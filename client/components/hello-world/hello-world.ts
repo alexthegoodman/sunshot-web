@@ -1,9 +1,9 @@
 import {LitElement, html, unsafeCSS} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import logoUrl from '../../images/logowbg.svg';
-import styles from './HelloWorld.scss?inline';
+import styles from './hello-world.scss?inline';
 
-@customElement('simple-greeting')
+@customElement('test-header')
 export class SimpleGreeting extends LitElement {
   // Define scoped styles right with your component, in plain CSS
   static override styles = unsafeCSS(styles);
@@ -14,9 +14,11 @@ export class SimpleGreeting extends LitElement {
 
   // Render the UI as a function of component state
   override render() {
-    return html`<img alt="Lit" src=${logoUrl} width="150" />
+    return html`<div>
+      <img alt="Lit" src=${logoUrl} width="150" />
       <p className="test">Hello, ${this.name}!</p>
-      <button @click=${this.handleClick}>Test</button>`;
+      <button @click=${this.handleClick}>Test</button>
+    </div>`;
   }
 
   // update name on button click
