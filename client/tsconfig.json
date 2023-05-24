@@ -29,6 +29,6 @@
       }
     ]
   },
-  "include": ["./**/*.ts"],
+  "include": ["./**/*.ts", "./defs.d.ts"],
   "exclude": []
 }
