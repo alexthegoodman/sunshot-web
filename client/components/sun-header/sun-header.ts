@@ -9,9 +9,17 @@ export class SunHeader extends LitElement {
   override render() {
     return html`
       <header>
-        <div className="headerInner">
-          <slot name="logo"></slot>
-          <span>Links</span>
+        <div class="headerInner">
+          <div class="logoWrapper"><slot name="logo"></slot></div>
+          <div class="headerCtrls">
+            <nav>
+              <ul>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="/contact-support">Contact Support</a></li>
+              </ul>
+            </nav>
+            <button class="btn">Download Now</button>
+          </div>
         </div>
       </header>
     `;

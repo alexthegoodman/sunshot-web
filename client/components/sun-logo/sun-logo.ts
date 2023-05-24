@@ -9,8 +9,8 @@ export class Logo extends LitElement {
 
   override render() {
     return html`
-      <div>
-        <img alt="Lit" src=${logoUrl} width="150" />
+      <div class="sun-logo">
+        <img alt="SunShot logo" src=${logoUrl} />
         <span>SunShot</span>
       </div>
     `;

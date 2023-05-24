@@ -1,0 +1,17 @@
+@import '../../variables.scss';
+
+.sun-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  img {
+    width: 85px;
+    margin-right: 19px;
+  }
+  span {
+    font-size: 24px;
+    font-weight: 700;
+    color: $lightOrange;
+  }
+}
