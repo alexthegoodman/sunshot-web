@@ -11,7 +11,7 @@ export class UserLicenseController {
   @get('/users/{id}/license', {
     responses: {
       '200': {
-        description: 'User has one License',
+        description: 'Get user license',
         content: {
           'application/json': {
             schema: getModelSchemaRef(License),
