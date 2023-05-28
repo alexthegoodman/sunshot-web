@@ -1,5 +1,5 @@
 import {ID, field, objectType} from '@loopback/graphql';
-import {Entity, model, property, hasOne} from '@loopback/repository';
+import {Entity, hasOne, model, property} from '@loopback/repository';
 import {License} from './license.model';
 
 @objectType({description: 'The primary user model'})
@@ -22,6 +22,15 @@ export class User extends Entity {
     },
   })
   email: string;
+
+  @field()
+  @property({
+    type: 'string',
+    index: {
+      unique: true,
+    },
+  })
+  stripeCustomerId: string;
 
   @field()
   @property({
