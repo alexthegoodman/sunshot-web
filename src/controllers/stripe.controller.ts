@@ -31,7 +31,7 @@ export class StripeController {
     // },
   })
   async createSession(
-    @param.path.string('email') email: string,
+    @param.query.string('email') email: string,
   ): Promise<string> {
     // check if user exists in db
     const user = await this.userRepository.findOne({where: {email: email}});
@@ -45,7 +45,10 @@ export class StripeController {
 
     // if not, create user
     if (!user) {
-      const newUser = await this.userRepository.create({email: email});
+      const newUser = await this.userRepository.create({
+        id: uuidv4(),
+        email: email,
+      });
 
       const customer = await stripe.customers.create({
         email: newUser.email,
@@ -72,9 +75,12 @@ export class StripeController {
         },
       ],
       mode: 'payment',
-      success_url: `${process.env.WEBAPP_DOMAIN}/success.html`,
-      cancel_url: `${process.env.WEBAPP_DOMAIN}/cancel.html`,
+      success_url: `${process.env.WEBAPP_DOMAIN}/thank-you`,
+      cancel_url: `${process.env.WEBAPP_DOMAIN}/`,
       automatic_tax: {enabled: true},
+      customer_update: {
+        address: 'auto',
+      },
     });
 
     return session.url;

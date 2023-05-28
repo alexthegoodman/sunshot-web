@@ -14,7 +14,7 @@ export class SunLicenseForm extends LitElement {
       <form @submit="${this._formSubmit}">
         <label>Your email</label>
         <input
-          type="text"
+          type="email"
           autocomplete="email"
           .value="${this._email}"
           @change="${this._updateEmail}"
@@ -24,12 +24,21 @@ export class SunLicenseForm extends LitElement {
     `;
   }
 
-  private _formSubmit(event: Event) {
+  private async _formSubmit(event: Event) {
     event.preventDefault();
-    console.info('form-submit', this._email);
     // this.dispatchEvent(new CustomEvent('form-submit', {detail: this._email}));
 
     // send to loopback api and get back stripe url
+    const data = await fetch(
+      `${import.meta.env.VITE_API_DOMAIN}/stripe/create-session?email=${
+        this._email
+      }`,
+    );
+
+    const sessionUrl = await data.text();
+
+    // redirect to stripe url
+    window.location.href = sessionUrl;
   }
 
   private _updateEmail(event: Event) {
