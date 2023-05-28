@@ -1,6 +1,7 @@
 import {repository} from '@loopback/repository';
-import {get, param, response} from '@loopback/rest';
-import {UserRepository} from '../repositories';
+import {get, param, post, response} from '@loopback/rest';
+import {v4 as uuidv4} from 'uuid';
+import {LicenseRepository, UserRepository} from '../repositories';
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
@@ -8,6 +9,8 @@ export class StripeController {
   constructor(
     @repository(UserRepository)
     public userRepository: UserRepository,
+    @repository(LicenseRepository)
+    public licenseRepository: LicenseRepository,
   ) {}
 
   /**
@@ -75,5 +78,50 @@ export class StripeController {
     });
 
     return session.url;
+  }
+
+  /**
+   * stripe webhook
+   */
+  @post('/stripe/webhook')
+  @response(200, {
+    description: 'Stripe webhook',
+  })
+  async webhook(
+    @param.query.string('id') id: string,
+    @param.query.string('object') object: string,
+    @param.query.string('type') type: string,
+    @param.query.string('data') data: string,
+  ): Promise<string> {
+    console.log('id', id);
+    console.log('object', object);
+    console.log('type', type);
+    console.log('data', data);
+
+    // handle checkout.session.completed
+    switch (type) {
+      case 'checkout.session.completed':
+        const session = JSON.parse(data).object;
+        const customer = await stripe.customers.retrieve(session.customer);
+        const userId = customer.metadata.userId;
+
+        console.info('checkout.session.completed', customer, userId);
+
+        // generate and associate license with user
+        const licenseKey = uuidv4();
+        await this.licenseRepository.create({
+          key: licenseKey,
+          userId: userId,
+        });
+
+        // send email with license key
+        // TODO: mailgun?
+
+        break;
+      default:
+        break;
+    }
+
+    return 'ok';
   }
 }
