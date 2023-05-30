@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>SunShot</title>
+    <title>SunShot | Create Beautiful Screen Recordings</title>
+    <meta
+      name="description"
+      content="SunShot is a screen recording tool that follows your mouse."
+    />
     <script type="module">
       import '@fontsource/inter/latin-400.css';
       import '@fontsource/inter/latin-500.css';
@@ -16,6 +20,7 @@
         font-family: 'Inter', sans-serif;
       }
     </style>
+    <link rel="stylesheet" href="./reset.css" />
     <script
       type="module"
       src="./components/hello-world/hello-world.ts"
@@ -26,11 +31,48 @@
       type="module"
       src="./components/sun-license-form/sun-license-form.ts"
     ></script>
+    <script
+      type="module"
+      src="./components/sun-features/sun-features.ts"
+    ></script>
+    <script type="module" src="./components/sun-footer/sun-footer.ts"></script>
+    <script
+      type="module"
+      src="./components/sun-home-hero/sun-home-hero.ts"
+    ></script>
+    <script
+      type="module"
+      src="./components/sun-pricing/sun-pricing.ts"
+    ></script>
+    <script
+      type="module"
+      src="./components/sun-video-section/sun-video-section.ts"
+    ></script>
   </head>
   <body>
     <sun-header>
       <sun-logo slot="logo"></sun-logo>
     </sun-header>
+    <sun-home-hero></sun-home-hero>
+    <sun-video-section video-src="/">
+      <div slot="icon"></div>
+      <h1 slot="title">Present like a pro</h1>
+      <p slot="description">
+        Turn up your marketing content to the next level. Deliver video that
+        reflects well on your brand.
+      </p>
+    </sun-video-section>
+    <sun-video-section video-src="/">
+      <div slot="icon"></div>
+      <h1 slot="title">Cut editing time</h1>
+      <p slot="description">
+        Don’t waste valuable hours using other software. With SunShot, you can
+        do it in minutes.
+      </p>
+    </sun-video-section>
+    <sun-features></sun-features>
+    <sun-pricing></sun-pricing>
+    <sun-footer></sun-footer>
     <section>
       <h1>Where should you recieve your license key?</h1>
       <p>We'll send your license key to the email address you provide below.</p>

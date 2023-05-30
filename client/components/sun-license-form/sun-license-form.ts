@@ -28,12 +28,16 @@ export class SunLicenseForm extends LitElement {
     event.preventDefault();
     // this.dispatchEvent(new CustomEvent('form-submit', {detail: this._email}));
 
+    // TODO: client-side validation
+
     // send to loopback api and get back stripe url
     const data = await fetch(
       `${import.meta.env.VITE_API_DOMAIN}/stripe/create-session?email=${
         this._email
       }`,
     );
+
+    // TODO: error handling
 
     const sessionUrl = await data.text();
 
