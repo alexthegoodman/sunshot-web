@@ -29,6 +29,7 @@ export class SunVideoSection extends LitElement {
             <div class="description">
               <slot name="description"></slot>
             </div>
+            <button class="btn">Download Now</button>
           </div>
           <!-- content -->
         </div>
