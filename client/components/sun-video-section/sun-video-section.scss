@@ -1,41 +1,49 @@
 @import '../../variables.scss';
 @import '../../shared.scss';
 
-header {
-  .headerInner {
+.videoSection {
+  margin-bottom: 130px;
+
+  .videoSectionInner {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     width: $desktop;
     margin: 0 auto;
-  }
-  .headerCtrls {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  nav {
-    margin-right: 39px;
 
-    ul {
-      display: flex;
-      flex-direction: row;
-      list-style: none;
+    .video {
+      width: 590px;
 
-      li {
-        margin-right: 39px;
+      video {
+        width: 100%;
+        aspect-ratio: 16/9;
+        background-color: $black;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px 1px rgba(0, 0, 0, 0.2);
+      }
+    }
+    .content {
+      width: calc(100% - 590px);
+      padding-left: 45px;
 
-        &:last-of-type {
-          margin-right: 0;
-        }
-
-        a {
-          color: $black;
-          text-decoration: none;
-          font-size: 16px;
-          font-weight: 500;
-        }
+      .icon {
+        width: 75px;
+      }
+      .title {
+        font-weight: 900;
+        font-size: 48px;
+        line-height: 58px;
+        letter-spacing: 0.03em;
+        color: $black;
+        margin-bottom: 18px;
+      }
+      .description {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 36px;
+        letter-spacing: 0.03em;
+        color: $black;
+        width: 70%;
       }
     }
   }
