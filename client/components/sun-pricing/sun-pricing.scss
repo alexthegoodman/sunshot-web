@@ -1,2 +1,65 @@
 @import '../../variables.scss';
 @import '../../shared.scss';
+
+.pricing {
+  margin-bottom: 185px;
+
+  .pricingInner {
+    width: 800px;
+    margin: 0 auto;
+
+    .headline {
+      h5 {
+        font-weight: 900;
+        font-size: 64px;
+        line-height: 68px;
+        text-align: center;
+        letter-spacing: 0.03em;
+        color: $black;
+      }
+    }
+    .info {
+      background-color: $orangeGrey;
+      border-radius: 25px;
+      padding: 55px 65px;
+
+      display: flex;
+      flex-direction: row;
+
+      .content {
+        width: 50%;
+      }
+      .ctrls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+
+        .btn {
+          font-size: 24px;
+          line-height: 29px;
+          padding: 20px 30px;
+        }
+      }
+
+      span,
+      p {
+        display: block;
+        text-align: center;
+        letter-spacing: 0.03em;
+        color: $black;
+        margin: 0;
+      }
+      span {
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 68px;
+      }
+      p {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 68px;
+      }
+    }
+  }
+}

@@ -12,14 +12,15 @@ export class SunLicenseForm extends LitElement {
   override render() {
     return html`
       <form @submit="${this._formSubmit}">
-        <label>Your email</label>
+        <label for="email">Your email</label>
         <input
+          id="email"
           type="email"
           autocomplete="email"
           .value="${this._email}"
           @change="${this._updateEmail}"
         />
-        <button type="submit">Continue to Payment</button>
+        <button class="btn" type="submit">Continue to Payment</button>
       </form>
     `;
   }
