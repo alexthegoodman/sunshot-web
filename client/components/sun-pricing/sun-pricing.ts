@@ -7,6 +7,16 @@ export class SunPricing extends LitElement {
   static override styles = unsafeCSS(styles);
 
   override render() {
-    return html`<div></div>`;
+    return html`
+      <section>
+        <section>
+          <h1>Where should you recieve your license key?</h1>
+          <p>
+            We'll send your license key to the email address you provide below.
+          </p>
+          <sun-license-form></sun-license-form>
+        </section>
+      </section>
+    `;
   }
 }
