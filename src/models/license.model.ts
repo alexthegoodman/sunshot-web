@@ -21,6 +21,7 @@ export class License extends Entity {
   @property({
     type: 'date',
     required: true,
+    default: () => new Date(),
     onUpdate: 'now()',
   })
   dateUpdated: Date;

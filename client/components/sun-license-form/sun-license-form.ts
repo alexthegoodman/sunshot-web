@@ -9,6 +9,9 @@ export class SunLicenseForm extends LitElement {
   @state()
   protected _email = '';
 
+  @state()
+  protected _errorMessage = '';
+
   override render() {
     return html`
       <form @submit="${this._formSubmit}">
@@ -20,6 +23,7 @@ export class SunLicenseForm extends LitElement {
           .value="${this._email}"
           @change="${this._updateEmail}"
         />
+        ${this._errorMessage}
         <button class="btn" type="submit">Continue to Payment</button>
       </form>
     `;
@@ -39,6 +43,13 @@ export class SunLicenseForm extends LitElement {
     );
 
     // TODO: error handling
+
+    if (!data.ok) {
+      const errorData = await data.json();
+      console.error(errorData);
+      this._errorMessage = errorData.error.message;
+      return;
+    }
 
     const sessionUrl = await data.text();
 

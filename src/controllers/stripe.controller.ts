@@ -1,7 +1,12 @@
 import {repository} from '@loopback/repository';
-import {get, param, post, response} from '@loopback/rest';
+import {get, param, post, requestBody, response} from '@loopback/rest';
 import {v4 as uuidv4} from 'uuid';
 import {LicenseRepository, UserRepository} from '../repositories';
+const formData = require('form-data');
+const Mailgun = require('mailgun.js');
+
+const mailgun = new Mailgun(formData);
+const mg = mailgun.client({username: 'api', key: process.env.MAILGUN_API_KEY});
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
@@ -36,9 +41,22 @@ export class StripeController {
     // check if user exists in db
     const user = await this.userRepository.findOne({where: {email: email}});
 
+    let userLicense = null;
+
+    if (user) {
+      userLicense = await this.licenseRepository.findOne({
+        where: {userId: user?.id},
+      });
+    }
+
+    console.info('user', user, userLicense);
+
     // if user has license, return error
-    if (user?.license) {
-      throw new Error('User already has a license');
+    if (userLicense) {
+      throw {
+        statusCode: 400,
+        message: 'User already has license',
+      };
     }
 
     let stripeCustomerId = user?.stripeCustomerId;
@@ -89,39 +107,63 @@ export class StripeController {
   /**
    * stripe webhook
    */
-  @post('/stripe/webhook')
+  @post('/webhook')
   @response(200, {
     description: 'Stripe webhook',
   })
-  async webhook(
-    @param.query.string('id') id: string,
-    @param.query.string('object') object: string,
-    @param.query.string('type') type: string,
-    @param.query.string('data') data: string,
-  ): Promise<string> {
-    console.log('id', id);
-    console.log('object', object);
-    console.log('type', type);
-    console.log('data', data);
+  async webhook(@requestBody() body: any): Promise<string> {
+    const {type, data} = body;
+
+    console.info('webhook', type);
 
     // handle checkout.session.completed
     switch (type) {
       case 'checkout.session.completed':
-        const session = JSON.parse(data).object;
+        const session = data.object;
         const customer = await stripe.customers.retrieve(session.customer);
         const userId = customer.metadata.userId;
 
-        console.info('checkout.session.completed', customer, userId);
-
         // generate and associate license with user
         const licenseKey = uuidv4();
+
+        // console.info(
+        //   'checkout.session.completed',
+        //   customer,
+        //   userId,
+        //   licenseKey,
+        // );
+
         await this.licenseRepository.create({
+          id: uuidv4(),
           key: licenseKey,
           userId: userId,
         });
 
+        // console.info('license', license);
+
+        console.info('license created');
+
+        // get user by id
+        const user = await this.userRepository.findById(userId);
+
         // send email with license key
-        // TODO: mailgun?
+        const mailgunData = {
+          from: 'admin@sunshot.app',
+          to: user.email,
+          subject: `Here's Your License Key`,
+          template: 'license',
+          'h:X-Mailgun-Variables': JSON.stringify({
+            // be sure to stringify your payload
+            licenseKey,
+          }),
+          'h:Reply-To': 'reply-to@example.com',
+        };
+
+        // console.info('mailgun', mailgun, mg);
+
+        const response = await mg.messages.create('sunshot.app', mailgunData);
+
+        console.info('email sent', response);
 
         break;
       default:

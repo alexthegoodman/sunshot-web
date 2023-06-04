@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>SunShot</title>
+    <title>SunShot | Create Beautiful Screen Recordings</title>
+    <meta
+      name="description"
+      content="SunShot is a screen recording tool that follows your mouse."
+    />
     
     <style>
       * {
@@ -15,17 +19,38 @@
     
     
     
-    <script type="module" crossorigin src="/assets/index-62100e56.js"></script>
-    <link rel="stylesheet" href="/assets/index-d0393bf2.css">
+    
+    
+    
+    
+    
+    
+    <script type="module" crossorigin src="/assets/index-73acae8e.js"></script>
+    <link rel="stylesheet" href="/assets/index-aa086010.css">
   </head>
   <body>
     <sun-header>
       <sun-logo slot="logo"></sun-logo>
     </sun-header>
-    <section>
-      <h1>Where should you recieve your license key?</h1>
-      <p>We'll send your license key to the email address you provide below.</p>
-      <sun-license-form></sun-license-form>
-    </section>
+    <sun-home-hero></sun-home-hero>
+    <sun-video-section video-src="/">
+      <img slot="icon" src="/assets/graph-b219c7cc.svg" />
+      <h1 slot="title">Present like a pro</h1>
+      <p slot="description">
+        Turn up your marketing content to the next level. Deliver video that
+        reflects well on your brand.
+      </p>
+    </sun-video-section>
+    <sun-video-section video-src="/">
+      <img slot="icon" src="/assets/timer-c9ea9427.svg" />
+      <h1 slot="title">Cut editing time</h1>
+      <p slot="description">
+        Don’t waste valuable hours using other software. With SunShot, you can
+        do it in minutes.
+      </p>
+    </sun-video-section>
+    <sun-features></sun-features>
+    <sun-pricing></sun-pricing>
+    <sun-footer><sun-logo slot="logo"></sun-logo></sun-footer>
   </body>
 </html>
