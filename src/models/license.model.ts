@@ -1,9 +1,7 @@
-import {ID, field} from '@loopback/graphql';
 import {Entity, model, property} from '@loopback/repository';
 
 @model({settings: {strict: false}})
 export class License extends Entity {
-  @field(type => ID)
   @property({
     type: 'string',
     id: true,
@@ -17,7 +15,6 @@ export class License extends Entity {
   })
   key: string;
 
-  @field()
   @property({
     type: 'date',
     required: true,
@@ -26,7 +23,6 @@ export class License extends Entity {
   })
   dateUpdated: Date;
 
-  @field()
   @property({
     type: 'date',
     required: true,

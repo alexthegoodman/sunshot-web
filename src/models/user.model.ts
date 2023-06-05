@@ -1,11 +1,11 @@
-import {ID, field, objectType} from '@loopback/graphql';
+import {objectType} from '@loopback/graphql';
 import {Entity, hasOne, model, property} from '@loopback/repository';
 import {License} from './license.model';
 
 @objectType({description: 'The primary user model'})
 @model()
 export class User extends Entity {
-  @field(type => ID)
+  // @field(type => ID)
   @property({
     type: 'string',
     id: true,
@@ -13,7 +13,7 @@ export class User extends Entity {
   })
   id: string;
 
-  @field()
+  // @field()
   @property({
     type: 'string',
     required: true,
@@ -23,7 +23,6 @@ export class User extends Entity {
   })
   email: string;
 
-  @field()
   @property({
     type: 'string',
     index: {
@@ -32,7 +31,6 @@ export class User extends Entity {
   })
   stripeCustomerId: string;
 
-  @field()
   @property({
     type: 'date',
     required: true,
@@ -41,7 +39,6 @@ export class User extends Entity {
   })
   dateUpdated: Date;
 
-  @field()
   @property({
     type: 'date',
     required: true,

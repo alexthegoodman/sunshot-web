@@ -1,6 +1,5 @@
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig} from '@loopback/core';
-import {GraphQLBindings, GraphQLComponent} from '@loopback/graphql';
 import {RepositoryMixin} from '@loopback/repository';
 import {RestApplication} from '@loopback/rest';
 import {
@@ -20,12 +19,12 @@ export class SunshotWebApplication extends BootMixin(
     super(options);
 
     // Set up GraphQL
-    this.component(GraphQLComponent);
-    this.configure(GraphQLBindings.GRAPHQL_SERVER).to({
-      asMiddlewareOnly: true,
-    });
-    const server = this.getSync(GraphQLBindings.GRAPHQL_SERVER);
-    this.expressMiddleware('middleware.express.GraphQL', server.expressApp);
+    // this.component(GraphQLComponent);
+    // this.configure(GraphQLBindings.GRAPHQL_SERVER).to({
+    //   asMiddlewareOnly: true,
+    // });
+    // const server = this.getSync(GraphQLBindings.GRAPHQL_SERVER);
+    // this.expressMiddleware('middleware.express.GraphQL', server.expressApp);
 
     // Set up the custom sequence
     this.sequence(MySequence);
