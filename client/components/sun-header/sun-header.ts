@@ -14,8 +14,10 @@ export class SunHeader extends LitElement {
           <div class="headerCtrls">
             <nav>
               <ul>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="/contact-support">Contact Support</a></li>
+                <li>
+                  <a href="#!" @click=${this.scrollToPricing}>Pricing</a>
+                </li>
+                <li><a href="mailto:admin@sunshot.app">Contact Support</a></li>
               </ul>
             </nav>
             <button class="btn">Download Now</button>
@@ -23,5 +25,12 @@ export class SunHeader extends LitElement {
         </div>
       </header>
     `;
+  }
+
+  // scroll to #pricing on click
+  private scrollToPricing() {
+    const pricingEl = document.getElementById('pricing');
+    console.info('pricingEl', pricingEl);
+    pricingEl?.scrollIntoView({behavior: 'smooth'});
   }
 }

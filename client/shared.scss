@@ -10,6 +10,22 @@
   font-family: $body;
   font-weight: 700;
   font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $red;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:active {
+    outline: rgba(0, 0, 0, 0.5);
+  }
+
+  &:disabled {
+    background-color: $orangeGrey;
+    cursor: not-allowed;
+  }
 }
 
 .modal {

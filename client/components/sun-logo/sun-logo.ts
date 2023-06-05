@@ -9,10 +9,10 @@ export class Logo extends LitElement {
 
   override render() {
     return html`
-      <div class="sun-logo">
+      <a href="/" class="sun-logo">
         <img alt="SunShot logo" src=${logoUrl} />
         <span>SunShot</span>
-      </div>
+      </a>
     `;
   }
 }

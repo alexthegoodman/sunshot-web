@@ -21,10 +21,6 @@
       }
     </style>
     <link rel="stylesheet" href="./reset.css" />
-    <script
-      type="module"
-      src="./components/hello-world/hello-world.ts"
-    ></script>
     <script type="module" src="./components/sun-logo/sun-logo.ts"></script>
     <script type="module" src="./components/sun-header/sun-header.ts"></script>
     <script
@@ -71,7 +67,9 @@
       </p>
     </sun-video-section>
     <sun-features></sun-features>
-    <sun-pricing></sun-pricing>
-    <sun-footer><sun-logo slot="logo"></sun-logo></sun-footer>
+    <sun-pricing id="pricing"></sun-pricing>
+    <sun-footer>
+      <sun-logo slot="logo"></sun-logo>
+    </sun-footer>
   </body>
 </html>

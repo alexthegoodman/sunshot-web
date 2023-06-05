@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SunShot | Recover License</title>
+    <meta
+      name="description"
+      content="SunShot is a screen recording tool that follows your mouse."
+    />
+    <script type="module">
+      import '@fontsource/inter/latin-400.css';
+      import '@fontsource/inter/latin-500.css';
+      import '@fontsource/inter/latin-700.css';
+      import '@fontsource/inter/latin-900.css';
+    </script>
+    <style>
+      * {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+    <link rel="stylesheet" href="./reset.css" />
+    <script type="module" src="./components/sun-logo/sun-logo.ts"></script>
+    <script type="module" src="./components/sun-header/sun-header.ts"></script>
+    <script type="module" src="./components/sun-footer/sun-footer.ts"></script>
+  </head>
+  <body>
+    <sun-header>
+      <sun-logo slot="logo"></sun-logo>
+    </sun-header>
+    <sun-footer>
+      <sun-logo slot="logo"></sun-logo>
+    </sun-footer>
+  </body>
+</html>
