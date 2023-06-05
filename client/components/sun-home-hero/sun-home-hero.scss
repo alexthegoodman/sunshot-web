@@ -59,6 +59,15 @@
 
         .check {
           margin-right: 72px;
+          display: flex;
+          flex-direction: row;
+          align-self: center;
+
+          img {
+            margin-right: 12px;
+            position: relative;
+            top: -3px;
+          }
 
           span {
             font-weight: 500;

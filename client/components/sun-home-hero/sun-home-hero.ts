@@ -20,15 +20,15 @@ export class SunHomeHero extends LitElement {
             </div>
             <div class="checks">
               <div class="check">
-                <i class="ph ph-check"></i>
+                <img src="/images/checkbold.svg" />
                 <span>Follows Your Mouse</span>
               </div>
               <div class="check">
-                <i class="ph ph-check"></i>
+                <img src="/images/checkbold.svg" />
                 <span>Cross-Platform</span>
               </div>
               <div class="check">
-                <i class="ph ph-check"></i>
+                <img src="/images/checkbold.svg" />
                 <span>Easy and Fast</span>
               </div>
             </div>
