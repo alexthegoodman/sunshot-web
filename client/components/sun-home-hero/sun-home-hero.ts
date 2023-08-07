@@ -25,7 +25,7 @@ export class SunHomeHero extends LitElement {
               </div>
               <div class="check">
                 <img src="/images/checkbold.svg" />
-                <span>Cross-Platform</span>
+                <span>Full Quality</span>
               </div>
               <div class="check">
                 <img src="/images/checkbold.svg" />
