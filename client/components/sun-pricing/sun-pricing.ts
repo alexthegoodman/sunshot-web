@@ -18,7 +18,7 @@ export class SunPricing extends LitElement {
           </div>
           <div class="info">
             <div class="content">
-              <span>$19</span>
+              <span>$49</span>
               <p>Lifetime Access</p>
             </div>
             <div class="ctrls">

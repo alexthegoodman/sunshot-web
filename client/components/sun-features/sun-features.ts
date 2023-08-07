@@ -28,8 +28,10 @@ export class SunFeatures extends LitElement {
               </p>
             </div>
             <div class="feature">
-              <h4>Cross-Platform</h4>
-              <p>Capture your screen on either Windows or Mac.</p>
+              <h4>Full Quality</h4>
+              <p>
+                Capture in 4K? Export at full size. 60FPS. Smooth animations.
+              </p>
             </div>
           </div>
         </div>
