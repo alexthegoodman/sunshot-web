@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -10,6 +11,41 @@
       name="description"
       content="SunShot is a screen recording tool that follows your mouse."
     />
+    <!-- OG (only needed on home page, but would prefer reusable approach) -->
+    <meta
+      property="og:title"
+      content="SunShot | Create Beautiful Screen Recordings"
+    />
+    <meta
+      property="og:description"
+      content="SunShot is a screen recording tool that follows your mouse."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sunshot.app" />
+    <meta
+      property="og:image"
+      content="https://sunshot.app/images/facebook-og.jpg"
+    />
+    <meta property="og:site_name" content="SunShot" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- <meta name="twitter:site" content="@SunShotApp"> -->
+    <!-- Replace with your Twitter handle -->
+    <meta
+      name="twitter:title"
+      content="SunShot | Create Beautiful Screen Recordings"
+    />
+    <meta
+      name="twitter:description"
+      content="SunShot is a screen recording tool that follows your mouse."
+    />
+    <meta
+      name="twitter:image"
+      content="https://sunshot.app/images/twitter-og.jpg"
+    />
+    <!-- Replace with the link to your Twitter OG image -->
+
+    <!-- CSS -->
     <script type="module">
       import '@fontsource/inter/latin-400.css';
       import '@fontsource/inter/latin-500.css';
@@ -22,6 +58,7 @@
       }
     </style>
     <link rel="stylesheet" href="./reset.css" />
+    <!-- Scripts -->
     <script type="module" src="./components/sun-logo/sun-logo.ts"></script>
     <script type="module" src="./components/sun-header/sun-header.ts"></script>
     <script
