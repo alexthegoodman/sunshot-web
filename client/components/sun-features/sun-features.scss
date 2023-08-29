@@ -64,4 +64,27 @@
       }
     }
   }
+
+  @include desktopDown {
+    .featuresInner {
+      width: 100%;
+    }
+  }
+  @include tabletDown {
+    .featuresInner {
+      grid-template-columns: 1fr;
+      row-gap: 50px;
+
+      .featuresLeft {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+      }
+      .featuresRight {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+      }
+    }
+  }
 }

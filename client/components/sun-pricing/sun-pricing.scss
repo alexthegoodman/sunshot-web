@@ -62,4 +62,10 @@
       }
     }
   }
+
+  @include middleDown {
+    .pricingInner {
+      width: 100%;
+    }
+  }
 }

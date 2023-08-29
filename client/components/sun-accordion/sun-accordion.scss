@@ -7,12 +7,20 @@
     margin: 0 auto 125px auto;
 
     .accordionItem {
+      margin-bottom: 50px;
+
       p {
         font-size: 16px;
         line-height: 26px;
         font-weight: 500;
         color: $black;
       }
+    }
+  }
+
+  @include tabletDown {
+    .accordionInner {
+      width: 100%;
     }
   }
 }

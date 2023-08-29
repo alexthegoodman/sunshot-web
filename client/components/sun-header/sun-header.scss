@@ -44,4 +44,15 @@ header {
       }
     }
   }
+
+  @include desktopDown {
+    padding: 0 20px;
+
+    .headerInner {
+      width: 100%;
+    }
+    nav {
+      margin-right: 20px;
+    }
+  }
 }

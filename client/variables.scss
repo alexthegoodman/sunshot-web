@@ -10,3 +10,27 @@ $black: #222222;
 $lightOrange: #f38e03;
 $red: #ea5419;
 $orangeGrey: #f3ebe0;
+
+@mixin desktopDown {
+  @media (max-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin middleDown {
+  @media (max-width: $middle) {
+    @content;
+  }
+}
+
+@mixin tabletDown {
+  @media (max-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin phoneDown {
+  @media (max-width: $phone) {
+    @content;
+  }
+}

@@ -97,4 +97,47 @@
       }
     }
   }
+
+  @include desktopDown {
+    .homeHeroInner {
+      width: 100%;
+    }
+  }
+  @include tabletDown {
+    .homeHeroInner {
+      .content {
+        padding-bottom: 180px;
+
+        h1 {
+          font-size: 64px;
+          line-height: 78px;
+          width: 100%;
+          margin: 30px auto 30px auto;
+        }
+
+        .checks {
+          flex-direction: column;
+          gap: 25px;
+          margin-bottom: 30px;
+
+          .check {
+            margin-right: 0;
+            margin-bottom: 0px;
+
+            img {
+              width: 25px;
+              top: 0;
+            }
+            span {
+              font-size: 20px;
+              line-height: 24px;
+            }
+          }
+        }
+      }
+      .video {
+        bottom: -100px;
+      }
+    }
+  }
 }

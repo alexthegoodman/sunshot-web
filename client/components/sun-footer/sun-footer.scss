@@ -30,4 +30,10 @@ footer {
       }
     }
   }
+
+  @include desktopDown {
+    .footerInner {
+      width: 100%;
+    }
+  }
 }

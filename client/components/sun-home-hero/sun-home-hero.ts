@@ -36,7 +36,7 @@ export class SunHomeHero extends LitElement {
           <!-- content -->
           <div class="video">
             <video autoplay muted loop playsinline>
-              <source src="/assets/video/hero.mp4" type="video/mp4" />
+              <source src="/videos/postmanTest.mp4" type="video/mp4" />
             </video>
           </div>
           <!-- video -->
