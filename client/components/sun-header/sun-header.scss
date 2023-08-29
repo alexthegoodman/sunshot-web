@@ -16,6 +16,13 @@ header {
     flex-direction: row;
     align-items: center;
   }
+  .mobile {
+    display: none;
+    z-index: 15;
+  }
+  .logoWrapper {
+    z-index: 15;
+  }
   nav {
     margin-right: 39px;
 
@@ -23,6 +30,7 @@ header {
       display: flex;
       flex-direction: row;
       list-style: none;
+      padding: 0;
 
       li {
         margin-right: 39px;
@@ -53,6 +61,47 @@ header {
     }
     nav {
       margin-right: 20px;
+    }
+  }
+  @include tabletDown {
+    .headerCtrls {
+      display: none;
+
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: white;
+      z-index: 10;
+
+      padding-top: 100px;
+
+      flex-direction: column;
+      align-items: center;
+
+      &.open {
+        display: flex;
+      }
+
+      nav {
+        margin-right: 0px;
+
+        ul {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+
+          li {
+            margin-right: 0;
+            margin-bottom: 30px;
+          }
+        }
+      }
+    }
+    .mobile {
+      display: block;
     }
   }
 }
