@@ -58,14 +58,48 @@
       p {
         font-weight: 700;
         font-size: 32px;
-        line-height: 68px;
+        line-height: 42px;
+        margin-top: 5px;
       }
     }
   }
 
   @include middleDown {
+    padding: 0 20px;
+
     .pricingInner {
       width: 100%;
+    }
+  }
+  @include phoneDown {
+    .pricingInner {
+      .headline {
+        h5 {
+          font-size: 40px;
+          line-height: 48px;
+        }
+      }
+      .info {
+        flex-direction: column;
+
+        .content {
+          width: 100%;
+
+          p {
+            font-size: 22px;
+            line-height: 32px;
+            margin-top: 10px;
+          }
+        }
+        .ctrls {
+          width: 100%;
+          margin-top: 30px;
+
+          .btn {
+            width: 100%;
+          }
+        }
+      }
     }
   }
 }

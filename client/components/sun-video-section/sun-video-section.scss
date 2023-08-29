@@ -53,6 +53,8 @@
   }
 
   @include middleDown {
+    padding: 0 20px;
+
     .videoSectionInner {
       width: 100%;
     }
@@ -79,6 +81,20 @@
         .description {
           font-size: 24px;
           line-height: 44px;
+        }
+      }
+    }
+  }
+  @include phoneDown {
+    .videoSectionInner {
+      .content {
+        .title {
+          font-size: 32px;
+          line-height: 38px;
+        }
+        .description {
+          font-size: 20px;
+          line-height: 40px;
         }
       }
     }

@@ -66,6 +66,8 @@
   }
 
   @include desktopDown {
+    padding: 0 20px;
+
     .featuresInner {
       width: 100%;
     }
@@ -75,15 +77,31 @@
       grid-template-columns: 1fr;
       row-gap: 50px;
 
-      .featuresLeft {
-        display: flex;
-        flex-direction: column;
-        gap: 50px;
-      }
+      .featuresLeft,
       .featuresRight {
         display: flex;
         flex-direction: column;
         gap: 50px;
+
+        .feature {
+          height: auto;
+          padding: 50px 40px;
+
+          h2,
+          h3,
+          h4 {
+            font-size: 32px;
+            line-height: 38px;
+          }
+          p {
+            font-size: 20px;
+            line-height: 30px;
+          }
+          span {
+            font-size: 20px;
+            line-height: 24px;
+          }
+        }
       }
     }
   }

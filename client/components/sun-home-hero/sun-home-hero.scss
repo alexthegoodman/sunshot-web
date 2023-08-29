@@ -108,9 +108,11 @@
     }
   }
   @include tabletDown {
+    margin-bottom: 80px;
+
     .homeHeroInner {
       .content {
-        padding-bottom: 20%;
+        padding-bottom: 20px;
 
         h1 {
           font-size: 64px;
@@ -141,11 +143,13 @@
       }
       .video {
         bottom: -40%;
+
+        display: none;
       }
     }
   }
   @include phoneDown {
-    margin-bottom: 200px;
+    // margin-bottom: 200px;
 
     .homeHeroInner {
       .content {
