@@ -20,7 +20,7 @@ export class SunHeader extends LitElement {
                 <li><a href="mailto:admin@sunshot.app">Contact Support</a></li>
               </ul>
             </nav>
-            <button class="btn">Download Now</button>
+            <button class="btn">Download for Windows</button>
           </div>
         </div>
       </header>
