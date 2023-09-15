@@ -3,10 +3,13 @@ import {get, param, post, requestBody, response} from '@loopback/rest';
 import {v4 as uuidv4} from 'uuid';
 import {LicenseRepository, UserRepository} from '../repositories';
 const formData = require('form-data');
-const Mailgun = require('mailgun.js');
+// const Mailgun = require('mailgun.js');
 
-const mailgun = new Mailgun(formData);
-const mg = mailgun.client({username: 'api', key: process.env.MAILGUN_API_KEY});
+// const mailgun = new Mailgun(formData);
+// const mg = mailgun.client({username: 'api', key: process.env.MAILGUN_API_KEY});
+
+const postmark = require('postmark');
+const pm = new postmark.ServerClient(process.env.POSTMARK_API_KEY);
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
@@ -93,7 +96,7 @@ export class StripeController {
         },
       ],
       mode: 'payment',
-      success_url: `${process.env.WEBAPP_DOMAIN}/thank-you`,
+      success_url: `${process.env.WEBAPP_DOMAIN}/thank-you.html`,
       cancel_url: `${process.env.WEBAPP_DOMAIN}/`,
       automatic_tax: {enabled: true},
       customer_update: {
@@ -146,22 +149,40 @@ export class StripeController {
         // get user by id
         const user = await this.userRepository.findById(userId);
 
-        // send email with license key
-        const mailgunData = {
-          from: 'admin@sunshot.app',
-          to: user.email,
-          subject: `Here's Your License Key`,
-          template: 'license',
-          'h:X-Mailgun-Variables': JSON.stringify({
-            // be sure to stringify your payload
-            licenseKey,
-          }),
-          'h:Reply-To': 'reply-to@example.com',
-        };
+        // // send email with license key
+        // const mailgunData = {
+        //   from: 'admin@sunshot.app',
+        //   to: user.email,
+        //   subject: `Here's Your License Key`,
+        //   template: 'license',
+        //   'h:X-Mailgun-Variables': JSON.stringify({
+        //     // be sure to stringify your payload
+        //     licenseKey,
+        //   }),
+        //   'h:Reply-To': 'reply-to@example.com',
+        // };
 
-        // console.info('mailgun', mailgun, mg);
+        // // console.info('mailgun', mailgun, mg);
 
-        const response = await mg.messages.create('sunshot.app', mailgunData);
+        // const response = await mg.messages.create('sunshot.app', mailgunData);
+
+        // send email with tempalte via postmark
+        const response = await pm.sendEmailWithTemplate({
+          From: 'admin@sunshot.app',
+          To: user.email,
+          TemplateId: 33168023,
+          TemplateModel: {
+            licenses: [
+              {
+                key: licenseKey,
+                grantDate: new Date().toLocaleDateString(),
+                expirationDate: new Date(
+                  new Date().setFullYear(new Date().getFullYear() + 1),
+                ).toLocaleDateString(),
+              },
+            ],
+          },
+        });
 
         console.info('email sent', response);
 
