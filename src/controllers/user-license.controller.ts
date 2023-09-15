@@ -8,10 +8,10 @@ export class UserLicenseController {
     @repository(UserRepository) protected userRepository: UserRepository,
   ) {}
 
-  @get('/users/{id}/license', {
+  @get('/users/{id}/licenses', {
     responses: {
       '200': {
-        description: 'Get user license',
+        description: 'Get user licenses',
         content: {
           'application/json': {
             schema: getModelSchemaRef(License),
@@ -23,7 +23,8 @@ export class UserLicenseController {
   async get(
     @param.path.string('id') id: string,
     @param.query.object('filter') filter?: Filter<License>,
-  ): Promise<License> {
-    return this.userRepository.license(id).get(filter);
+  ): Promise<License[]> {
+    // return this.userRepository.license(id).get(filter);
+    return this.userRepository.licenses(id).find(filter);
   }
 }

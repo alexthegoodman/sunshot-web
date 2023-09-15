@@ -1,5 +1,5 @@
 import {objectType} from '@loopback/graphql';
-import {Entity, hasOne, model, property} from '@loopback/repository';
+import {Entity, hasMany, model, property} from '@loopback/repository';
 import {License} from './license.model';
 
 @objectType({description: 'The primary user model'})
@@ -46,8 +46,8 @@ export class User extends Entity {
   })
   dateCreated: Date;
 
-  @hasOne(() => License)
-  license: License;
+  @hasMany(() => License)
+  licenses: License[];
 
   constructor(data?: Partial<User>) {
     super(data);
