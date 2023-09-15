@@ -41,23 +41,23 @@ export class StripeController {
     // check if user exists in db
     const user = await this.userRepository.findOne({where: {email: email}});
 
-    let userLicense = null;
+    // let userLicense = null;
 
-    if (user) {
-      userLicense = await this.licenseRepository.findOne({
-        where: {userId: user?.id},
-      });
-    }
+    // if (user) {
+    //   userLicense = await this.licenseRepository.findOne({
+    //     where: {userId: user?.id},
+    //   });
+    // }
 
-    console.info('user', user, userLicense);
+    // console.info('user', user, userLicense);
 
-    // if user has license, return error
-    if (userLicense) {
-      throw {
-        statusCode: 400,
-        message: 'User already has license',
-      };
-    }
+    // // if user has license, return error
+    // if (userLicense) {
+    //   throw {
+    //     statusCode: 400,
+    //     message: 'User already has license',
+    //   };
+    // }
 
     let stripeCustomerId = user?.stripeCustomerId;
 
