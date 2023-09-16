@@ -15,6 +15,7 @@ export class ThankYou extends LitElement {
           is always welcome. Support is available at
           <a href="mailto:admin@sunshot.app">admin@sunshot.app</a>
         </p>
+        <button class="btn">Download for Windows</button>
       </div>
     `;
   }
