@@ -33,6 +33,10 @@ export class UserRepository extends DefaultCrudRepository<
     this.registerInclusionResolver('licenses', this.licenses.inclusionResolver);
   }
 
+  async findByEmail(email: string): Promise<User | null> {
+    return this.findOne({where: {email}});
+  }
+
   async getOne(id: string): Promise<User | null> {
     return this.findOne({where: {id}});
   }
