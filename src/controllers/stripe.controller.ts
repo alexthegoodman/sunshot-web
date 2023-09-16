@@ -102,7 +102,7 @@ export class StripeController {
       mode: 'payment',
       success_url: `${process.env.WEBAPP_DOMAIN}/thank-you.html`,
       cancel_url: `${process.env.WEBAPP_DOMAIN}/`,
-      automatic_tax: {enabled: true},
+      automatic_tax: {enabled: false},
       // customer_update: {
       //   address: 'auto',
       // },
