@@ -103,9 +103,9 @@ export class StripeController {
       success_url: `${process.env.WEBAPP_DOMAIN}/thank-you.html`,
       cancel_url: `${process.env.WEBAPP_DOMAIN}/`,
       automatic_tax: {enabled: true},
-      customer_update: {
-        address: 'auto',
-      },
+      // customer_update: {
+      //   address: 'auto',
+      // },
     });
 
     return session.url;
