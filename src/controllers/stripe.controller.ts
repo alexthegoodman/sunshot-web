@@ -44,6 +44,8 @@ export class StripeController {
     // check if user exists in db
     const user = await this.userRepository.findOne({where: {email: email}});
 
+    console.info('createSession', email, user);
+
     // let userLicense = null;
 
     // if (user) {
@@ -77,6 +79,8 @@ export class StripeController {
           userId: newUser.id,
         },
       });
+
+      console.info('customer', customer);
 
       await this.userRepository.updateById(newUser.id, {
         stripeCustomerId: customer.id,
