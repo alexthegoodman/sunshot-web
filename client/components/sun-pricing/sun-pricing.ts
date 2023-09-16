@@ -19,7 +19,7 @@ export class SunPricing extends LitElement {
           <div class="info">
             <div class="content">
               <span>$49</span>
-              <p>Lifetime Access</p>
+              <p>1 Year License</p>
             </div>
             <div class="ctrls">
               <button class="btn" @click=${this._openModal}>
