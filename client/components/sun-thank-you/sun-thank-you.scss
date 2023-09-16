@@ -1,0 +1,12 @@
+@import '../../variables.scss';
+@import '../../shared.scss';
+
+.thankYou {
+  width: $desktop;
+  margin: 0 auto;
+  padding: 80px 0;
+
+  @include desktopDown {
+    width: 100%;
+  }
+}
