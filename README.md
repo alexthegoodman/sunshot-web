@@ -11,10 +11,8 @@ npm install
 ## Run the application
 
 ```sh
-npm start
+npm start:local
 ```
-
-You can also run `node .` to skip the build step.
 
 Open http://127.0.0.1:3000 in your browser.
 
