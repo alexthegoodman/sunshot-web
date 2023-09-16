@@ -55,6 +55,12 @@ npm run lint:fix
 npm test
 ```
 
+## Deploy
+
+```sh
+git push heroku master
+```
+
 ## Learn more
 
 Please check out [LoopBack 4 documentation](https://loopback.io/doc/en/lb4/) to
