@@ -1,6 +1,6 @@
 import {LitElement, html, unsafeCSS} from 'lit';
 import {customElement, state} from 'lit/decorators.js';
-import styles from './sun-license-form.scss?inline';
+import styles from './sun-recover-license-form.scss?inline';
 
 @customElement('sun-recover-license-form')
 export class SunLicenseForm extends LitElement {
@@ -12,20 +12,37 @@ export class SunLicenseForm extends LitElement {
   @state()
   protected _errorMessage = '';
 
+  @state()
+  protected _successMessage = '';
+
   override render() {
     return html`
-      <form @submit="${this._formSubmit}">
-        <label for="email">Your email</label>
-        <input
-          id="email"
-          type="email"
-          autocomplete="email"
-          .value="${this._email}"
-          @change="${this._updateEmail}"
-        />
-        ${this._errorMessage}
-        <button class="btn" type="submit">Request License</button>
-      </form>
+      <section class="recoverLicenseForm">
+        <div class="recoverLicenseFormInner">
+          <div class="recoverLicenseHeader">
+            <h1>Recover License(s)</h1>
+            <p>
+              It happens to all of us. For some reason, you’ve been prompted to
+              enter your license key, but you have forgotten it! That’s okay.
+              Enter your email below, and your license key(s) will be emailed to
+              you instantly!
+            </p>
+          </div>
+          <form @submit="${this._formSubmit}">
+            <label for="email">Your email</label>
+            <input
+              id="email"
+              type="email"
+              autocomplete="email"
+              .value="${this._email}"
+              @change="${this._updateEmail}"
+            />
+            ${this._errorMessage}
+            <button class="btn" type="submit">Request License</button>
+            ${this._successMessage}
+          </form>
+        </div>
+      </section>
     `;
   }
 
@@ -37,24 +54,32 @@ export class SunLicenseForm extends LitElement {
 
     // send to loopback api and get back stripe url
     const data = await fetch(
-      `${import.meta.env.VITE_API_DOMAIN}/stripe/create-session?email=${
-        this._email
-      }`,
+      `${import.meta.env.VITE_API_DOMAIN}/users/send-licenses`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({email: this._email}),
+      },
     );
+
+    const json = await data.json();
 
     // TODO: error handling
 
     if (!data.ok) {
-      const errorData = await data.json();
-      console.error(errorData);
-      this._errorMessage = errorData.error.message;
+      console.error(json);
+      this._errorMessage = json.error.message;
       return;
     }
 
-    const sessionUrl = await data.text();
+    if (json.message === 'User not found') {
+      this._errorMessage = 'User not found';
+      return;
+    }
 
-    // redirect to stripe url
-    window.location.href = sessionUrl;
+    this._successMessage = 'Check your email for your license key!';
   }
 
   private _updateEmail(event: Event) {

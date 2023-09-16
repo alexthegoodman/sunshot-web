@@ -12,7 +12,7 @@ export class SunFooter extends LitElement {
         <div class="footerInner">
           <div class="logoWrapper"><slot name="logo"></slot></div>
           <ul>
-            <li><a href="/recover-license">Recover License</a></li>
+            <li><a href="/recover-license.html">Recover License(s)</a></li>
             <li><a href="mailto:admin@sunshot.app">Contact Support</a></li>
           </ul>
         </div>
