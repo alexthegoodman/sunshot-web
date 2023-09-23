@@ -1,5 +1,7 @@
 import {LitElement, html, unsafeCSS} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
+import videoUrl from '../../videos/postmanTest.mp4';
+import videoUrl2 from '../../videos/steamTest.mp4';
 import styles from './sun-video-section.scss?inline';
 
 @customElement('sun-video-section')
@@ -15,7 +17,10 @@ export class SunVideoSection extends LitElement {
         <div class="videoSectionInner">
           <div class="video">
             <video autoplay muted loop playsinline>
-              <source src=${this.videoSrc} type="video/mp4" />
+              <source
+                src=${this.videoSrc === '1' ? videoUrl : videoUrl2}
+                type="video/mp4"
+              />
             </video>
           </div>
           <!-- video -->

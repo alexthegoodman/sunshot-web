@@ -1,5 +1,7 @@
 import {LitElement, html, unsafeCSS} from 'lit';
 import {customElement} from 'lit/decorators.js';
+import checkUrl from '../../images/checkbold.svg';
+import heroVideoUrl from '../../videos/postmanTest.mp4';
 import styles from './sun-home-hero.scss?inline';
 
 @customElement('sun-home-hero')
@@ -20,15 +22,15 @@ export class SunHomeHero extends LitElement {
             </div>
             <div class="checks">
               <div class="check">
-                <img src="/images/checkbold.svg" />
+                <img src=${checkUrl} />
                 <span>Follows Your Mouse</span>
               </div>
               <div class="check">
-                <img src="/images/checkbold.svg" />
+                <img src=${checkUrl} />
                 <span>Full Quality</span>
               </div>
               <div class="check">
-                <img src="/images/checkbold.svg" />
+                <img src=${checkUrl} />
                 <span>Easy and Fast</span>
               </div>
             </div>
@@ -36,7 +38,7 @@ export class SunHomeHero extends LitElement {
           <!-- content -->
           <div class="video">
             <video autoplay muted loop playsinline>
-              <source src="/videos/postmanTest.mp4" type="video/mp4" />
+              <source src=${heroVideoUrl} type="video/mp4" />
             </video>
           </div>
           <!-- video -->
