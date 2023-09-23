@@ -23,7 +23,7 @@ export class SunHeader extends LitElement {
                 <li><a href="mailto:admin@sunshot.app">Contact Support</a></li>
               </ul>
             </nav>
-            <button class="btn">Download for Windows</button>
+            <sun-download-button></sun-download-button>
           </div>
           <div class="mobile">
             <img src="/images/menu.svg" @click=${this._openMenu} />
